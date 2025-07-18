@@ -3,7 +3,7 @@ Description: S3 Bucket for CloudFormation Template
 
 Parameters:
   BucketName:
-    Description: keerthi-s3-bucket 
+    Description: keerthi-s3-bucket-01
     Type: String
     Default: keerthi-bucket
 
