@@ -1,22 +1,31 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: CloudFormation Template to create an S3 bucket with versioning
+Description: S3 Bucket for CloudFormation Template
 
 Parameters:
   BucketName:
-    Description: Name of the S3 bucket
+    Description: keerthi-s3-bucket 
     Type: String
-  VersioningStatus:
-    Description: Enable or Suspend versioning
+    Default: keerthi-bucket
+
+  BucketVersioning:
+    Description: Enable versioning for the S3 bucket.
     Type: String
+    Default: true
     AllowedValues:
-      - Enabled
-      - Suspended
-    Default: Suspended
+      - true
+      - false
+    ConstraintDescription: Must be either 'true' or 'false'.
+
+  Environment:
+    Description: Environment name tag for the S3 bucket.
+    Type: String
+    Default: dev
 
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref BucketName
+      BucketName: 
+        Ref: BucketName
       VersioningConfiguration:
-        Status: !Ref VersioningStatus
+        Status: Enabled  
